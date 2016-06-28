@@ -1,0 +1,47 @@
+---
+  root_dir: "{{ role_path }}"
+  role_dir: "{{ root_dir }}"
+
+  jenkins_jar_location: /var/cache/jenkins/war/WEB-INF/jenkins-cli.jar
+  jenkins_install_dir: /var/lib/jenkins
+
+  jenkins_hostname: localhost
+
+  jenkins_plugins:
+    - ghprb
+    - slack
+    - hipchat
+    - workflow-aggregator
+    - pipeline-stage-view
+    - github-organization-folder
+    - modernstatus
+    - environment-script
+    - rebuild
+    - throttle-concurrents
+    - ansicolor
+    - parameterized-trigger
+    - rebuild
+
+  jenkins_url_prefix: ""
+
+  java_version: 8
+
+  setup_nginx_secure_site: false
+
+  jenkins_domain: "vagrant.dev"
+  jenkins_host: "jenkins"
+
+  option_use_pregenerated_pem: true
+
+  ssl_key_fqdn:  "{{jenkins_host}}.{{jenkins_domain}}"
+  ssl_key_name:  jenkins_selfsigned
+  ssl_cert_name: jenkins_selfsigned
+  ssl_install_path: /etc/nginx
+  ssl_files:
+    - "{{ssl_key_name}}.key"
+    - "{{ssl_cert_name}}.crt"
+
+  install-webdriver: false
+
+  install-prudentia: false
+  prudentia_version: 2.2

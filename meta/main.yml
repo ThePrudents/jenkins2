@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  author: The Prudents
+  description: Ready to use Jenkins with set of optional bundled plugins.
+  company: https://squads.com/teams/the-prudents
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+  galaxy_tags:
+    - jenkins
+    - ubuntu
+    - buildserver
+    - continuous integration
+    - ci
+    - continuous delivery
+    - cd
+    - webdriver
+    - prudentia
+dependencies:
+  - role: ThePrudents.commons-lang
+    install-jdk: true

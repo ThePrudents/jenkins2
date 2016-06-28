@@ -1,0 +1,31 @@
+---
+  - include: "chrome.yml"
+
+  - name: Xvfb | Install
+    apt: force=yes state=present pkg=xvfb
+    when: ansible_distribution == "Ubuntu"
+    become: yes
+
+  - name: Webdriver | Check if is present
+    command: test -x /usr/local/bin/webdriver-manager
+    when: ansible_system == "Linux"
+    ignore_errors: yes
+    register: webdriver_present
+
+  - name: Webdriver | Install
+    command: "{{item}}"
+    with_items:
+      - "npm install -g webdriver-manager"
+      - "webdriver-manager update"
+    become: yes
+    when: ansible_system == "Linux" and webdriver_present|failed
+
+  - name: Webdriver daemon | Copy upstart script
+    template: src={{role_dir}}/files/webdriver/upstart.conf dest=/etc/init/webdriver.conf
+    when: ansible_distribution == "Ubuntu"
+    become: yes
+
+  - name: Webdriver daemon | Start
+    service: name=webdriver state=started
+    when: ansible_distribution == "Ubuntu"
+    become: yes
