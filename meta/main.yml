@@ -20,5 +20,5 @@ galaxy_info:
     - webdriver
     - prudentia
 dependencies:
-  - role: ThePrudents.commons-lang
+  - role: ThePrudents.common-langs
     install-jdk: true
