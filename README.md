@@ -51,14 +51,17 @@ or overrides them:
       setup_nginx_secure_site: true
 ```
 
+### Dependencies
 
-## Why Jenkins
+This role depends on the [commons-lang](https://github.com/ThePrudents/common-langs) which is used to install the 
+Oracle JDK.
+
+### Why Jenkins
 Nowadays continuous integration/delivery is an important part of the agile software development life cycle.
 There are a number of tools on the market: Atlassian Bamboo, Jenkins, Jetbrains TeamCity.
 In my opinion Jenkins has the most optimal product community and set of really useful plugins
-that suits most of your software projects:  you can  build software, deploy software,  
-websites, portals to various places, including AWS, DigitalOcean, bare metal servers
-or to run unit tests. It can be integrated with communication tools of your choice, like Slack, HipChat or
-email.
+that suits most of your software projects:  you can  build software, deploy software, websites, portals to 
+various places, including AWS, DigitalOcean, bare metal servers or to run unit tests. 
+It can be integrated with communication tools of your choice, like Slack, HipChat or email.
 
 If you haven't had a chance to try Jenkins earlier, feel free to use this role to start with.
